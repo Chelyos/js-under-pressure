@@ -27,6 +27,7 @@ export function* validationSaga(action: PayloadAction<Action>) {
       yield put(validationSlice.actions.validationSuccess(0));
       yield put(consoleSlice.actions.consoleMessage(['Success !']));
       yield put(enonceSlice.actions.enonceMessage(enonceArr[indice + 1]));
+      return;
     }
     if (result.status) {
       indice += 1;
