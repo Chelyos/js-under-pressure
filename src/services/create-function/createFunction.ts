@@ -1,7 +1,6 @@
 import { transpile } from './../transpilation/transpilation';
 export const createFunction = async (code: string) => {
-  //const codeFc = await transpile(code);
-  const codeFc = code;
+  const codeFc = await transpile(code);
 
   if (codeFc) {
     const param = getParamNames(codeFc);

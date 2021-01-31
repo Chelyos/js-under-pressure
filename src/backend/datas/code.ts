@@ -1,6 +1,4 @@
 function doubleInteger(i: number) {
-  // `i` will be an integer
-  // double it and return it.
   return i;
 }
 
