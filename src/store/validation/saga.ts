@@ -24,7 +24,6 @@ export function* validationSaga(action: PayloadAction<Action>) {
     if (indice + 1 >= testMethods.length) {
       yield put(editorSlice.actions.editorCode(''));
       yield put(enonceSlice.actions.enonceIsActive(false));
-      yield put(validationSlice.actions.validationSuccess(0));
       yield put(consoleSlice.actions.consoleMessage(['Success !']));
       yield put(enonceSlice.actions.enonceMessage(enonceArr[indice + 1]));
       return;
