@@ -29,13 +29,15 @@ export function* validationSaga(action: PayloadAction<Action>) {
       yield put(enonceSlice.actions.enonceMessage(enonceArr[indice + 1]));
       return;
     }
-    if (result.status) {
-      indice += 1;
+
+    indice += 1;
+
+    if (result.status && indice < initialCode.length) {
       const newCode = initialCode[indice].toString();
-      yield put(validationSlice.actions.validationSuccess(indice));
-      yield put(consoleSlice.actions.consoleMessage(result.log));
       yield put(editorSlice.actions.editorCode(newCode));
+      yield put(validationSlice.actions.validationSuccess(indice));
       yield put(enonceSlice.actions.enonceMessage(enonceArr[indice]));
+      yield put(consoleSlice.actions.consoleMessage(result.log));
     } else {
       yield put(consoleSlice.actions.consoleError(result.log));
     }
